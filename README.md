@@ -40,8 +40,6 @@ It also works on your own files: `pdcurve fit *.fit` reads COROS / Garmin / Waho
   distinguishable from zero. The intervals are still calibrated (94–98 %).
   See [Part B](#b-fitness-fatigue-as-a-state-space-model).
 
-## Why I built this
-
 <!-- TODO(Tommaso): dictate 3-4 lines in your own words -->
 
 ## Pipeline
