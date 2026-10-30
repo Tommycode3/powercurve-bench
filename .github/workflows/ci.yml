@@ -1,0 +1,33 @@
+name: ci
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e ".[dev]"
+      # synthetic tests only: no dataset download in CI
+      - run: pytest -q
+      - name: CLI smoke test on the committed demo season
+        run: pdcurve banister data/demo/athlete_season.csv --forecast-days 7
+      - name: Benchmark table reproducible from committed envelopes (no download)
+        run: |
+          cp results/benchmark_table.csv /tmp/committed.csv
+          MPLBACKEND=Agg python scripts/02_benchmark.py > /dev/null
+          python - <<'PY'
+          import csv
+          a = {(r["protocol"], r["test_s"], r["model"]): float(r["mape"]) for r in csv.DictReader(open("/tmp/committed.csv"))}
+          b = {(r["protocol"], r["test_s"], r["model"]): float(r["mape"]) for r in csv.DictReader(open("results/benchmark_table.csv"))}
+          assert a.keys() == b.keys()
+          worst = max(abs(a[k] - b[k]) for k in a)
+          print(f"max |MAPE diff| vs committed: {worst:.3f} pp")
+          assert worst < 0.2
+          PY

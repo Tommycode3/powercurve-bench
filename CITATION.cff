@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software or its benchmark results, please cite it as below."
+title: "pdcurve: an out-of-sample benchmark of power-duration models and a Kalman fitness-fatigue model"
+authors:
+  - family-names: Maggiolo
+    given-names: Tommaso
+    email: maggiolotommaso@gmail.com
+version: 0.1.0
+date-released: 2026-10-30
+license: MIT
+keywords: [critical power, power-duration, cycling, Kalman filter, Banister, fitness-fatigue]
+references:
+  - type: dataset
+    title: "GoldenCheetah OpenData Project"
+    authors:
+      - family-names: Liversedge
+        given-names: Mark
+    doi: 10.17605/OSF.IO/6HFPZ
+    year: 2018
+    license: CC0-1.0

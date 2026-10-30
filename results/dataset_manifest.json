@@ -1,0 +1,17 @@
+{
+  "source": "GoldenCheetah OpenData, OSF project 6hfpz, DOI 10.17605/OSF.IO/6HFPZ",
+  "license": "CC0-1.0",
+  "files": {
+    "activities.csv.zip": {
+      "bytes": 55130196,
+      "sha256": "9f886dd5c1bb299c3c2e26599122a7cc27a0915eeeec4f9d17a53789103628d4",
+      "url": "https://osf.io/download/4mazr/"
+    },
+    "activities_mmp.csv.zip": {
+      "bytes": 24170102,
+      "sha256": "317c63e24aa0296800ad37bda790e3bfc2fac6bfb0dffc8d6badf3c310db97fb",
+      "url": "https://osf.io/download/5unzr/"
+    }
+  },
+  "total_bytes": 79300298
+}

@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+data/raw/
+data/derived/tmp/
+data/derived/daily/
+data/derived/bike_activities.sqlite
+*.fit
+!tests/data/*.fit
+.DS_Store
